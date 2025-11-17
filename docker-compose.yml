@@ -1,0 +1,66 @@
+services:
+  users_api:
+    build: ./UserManagement
+    container_name: Innoshop.UserManagement.API
+    ports:
+      - "8080:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Server=db;Database=UserManagement;User=sa;Password=QWERTY!!11qwerty;
+      - Redis__Connection=redis:6379
+    depends_on:
+      - users_db
+      - users_redis
+      - users_seq
+      - innoshop_rabbitmq
+  
+  users_db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: Innoshop.UserManagement.SqlServer
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=QWERTY!!11qwerty
+    ports:
+      - "1433:1433"
+    volumes:
+      - users_sql_data:/var/opt/mssql
+  
+  users_redis:
+    image: redis:7
+    container_name: Innoshop.UserManagement.Redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - users_redis_data:/data
+
+  users_seq:
+    image: datalust/seq:latest
+    container_name: Innoshop.UserManagement.Seq
+    environment:
+      - ACCEPT_EULA=Y
+      - SEQ_FIRSTRUN_ADMINPASSWORD=QWERTY!!11qwerty
+    ports:
+      - 5341:5341
+      - 8081:80
+    volumes:
+      - users_seq_data:/data
+
+  innoshop_rabbitmq:
+    image: rabbitmq:4.2.0-management
+    container_name: Innoshop.RabbitMQ
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      - RABBITMQ_DEFAULT_USER=admin
+      - RABBITMQ_DEFAULT_PASS=admin
+    networks:
+      - appnet
+
+volumes:
+  users_sql_data:
+  users_redis_data:
+  users_seq_data:
+
+networks:
+  appnet:
