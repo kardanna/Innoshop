@@ -4,6 +4,6 @@ git clone --recurse-submodules https://github.com/kardanna/Innoshop.git
 
 cd Innoshop
 
-ocker-compose up
+docker-compose up
 
-![bisukle](bisukle.jpg)
+![bisukle](https://cdn.fishki.net/upload/post/201409/21/1306814/2_victor-sonna.jpg)

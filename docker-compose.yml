@@ -10,8 +10,8 @@ services:
       - ASPNETCORE_ENVIRONMENT=Production
     depends_on:
       - users_db
-      - users_redis
       - users_seq
+      - innoshop_auth_redis
       - innoshop_rabbitmq
     volumes:
     - users_api_dataprotection:/root/.aspnet/DataProtection-Keys
@@ -26,14 +26,6 @@ services:
       - "1433:1433"
     volumes:
       - users_sql_data:/var/opt/mssql
-  
-  users_redis:
-    image: redis:7
-    container_name: Innoshop.UserManagement.Redis
-    ports:
-      - "6379:6379"
-    volumes:
-      - users_redis_data:/data
 
   users_seq:
     image: datalust/seq:latest
@@ -46,6 +38,52 @@ services:
       - 8081:80
     volumes:
       - users_seq_data:/data
+
+  products_api:
+    build:
+      context: ./
+      dockerfile: Innoshop.ProductManagement/Dockerfile
+    container_name: Innoshop.ProductManagement.API
+    ports:
+      - "8082:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+    depends_on:
+      - products_db
+      - products_seq
+      - innoshop_auth_redis
+      - innoshop_rabbitmq
+
+  products_db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: Innoshop.ProductManagement.SqlServer
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=QWERTY!!11qwerty
+    ports:
+      - "1434:1433"
+    volumes:
+      - products_sql_data:/var/opt/mssql
+
+  products_seq:
+    image: datalust/seq:latest
+    container_name: Innoshop.ProductManagement.Seq
+    environment:
+      - ACCEPT_EULA=Y
+      - SEQ_FIRSTRUN_ADMINPASSWORD=QWERTY!!11qwerty
+    ports:
+      - 5342:5341
+      - 8083:80
+    volumes:
+      - products_seq_data:/data
+
+  innoshop_auth_redis:
+    image: redis:7
+    container_name: Innoshop.Authentication.Redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - auth_redis_data:/data
 
   innoshop_rabbitmq:
     image: rabbitmq:4.2.0-management
@@ -60,8 +98,7 @@ services:
 volumes:
   users_api_dataprotection:
   users_sql_data:
-  users_redis_data:
   users_seq_data:
-
-networks:
-  appnet:
+  products_sql_data:
+  products_seq_data:
+  auth_redis_data:

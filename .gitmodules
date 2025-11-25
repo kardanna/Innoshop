@@ -1,3 +1,6 @@
 [submodule "Innoshop.UserManagement"]
 	path = Innoshop.UserManagement
 	url = https://github.com/kardanna/Innoshop.UserManagement.git
+[submodule "Innoshop.ProductManagement"]
+	path = Innoshop.ProductManagement
+	url = https://github.com/kardanna/Innoshop.ProductManagement.git
