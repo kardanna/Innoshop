@@ -1,0 +1,162 @@
+{
+	"info": {
+		"_postman_id": "6845c55f-d83c-473b-b478-05ad59a3bcab",
+		"name": "ProductManagement (port 5250 / 8082)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "49909855",
+		"_collection_link": "https://mefeyo9956-6467883.postman.co/workspace/E-Rhiannon's-Workspace~c818fa3d-425d-4af1-8ac2-dc9190337a4e/collection/49909855-6845c55f-d83c-473b-b478-05ad59a3bcab?action=share&source=collection_link&creator=49909855"
+	},
+	"item": [
+		{
+			"name": "Get all products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{products_base_url}}/products",
+					"host": [
+						"{{products_base_url}}"
+					],
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add product",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjAxOWE5NjRmLWUwYzctN2ViMS1hNjhmLTI1MTdiNmM1NGNhYiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJDdXN0b21lciIsInN1YiI6IjgzNjE5Yzc0LTg4MzEtNGJmOS1lNjEyLTA4ZGUyNmNiNjE3OSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiJBbm5hIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvc3VybmFtZSI6IkFubm92YSIsImVtYWlsIjoiYW5uYS5hbm5vdmE0MkBnbWFpbC5jb20iLCJqdGkiOiIwMTlhYWIyNC0xYmViLTc0YTUtOTY3MC02MzA0MjEwMDU0YmIiLCJleHAiOjE3NjM4MDg3NjEsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAzMiIsImF1ZCI6Imh0dHBzOi8vaW5ub3Nob3AuYnkifQ.Zf9zmRClp7d7YfHGvKHv7ym9jy58Ry0HzckXcd1ATmX6Q-WxkakNnaKPWkCzHSeL5PW2dSH7sTTzhwrs1hXiS_igVlz751vUxrmzH7ZmQytKIallUvAr1N-uqR9QlYUl5Ohc9z8fnf-h0bNWrVBZ95vEgehoyoaZCPxiL6VoM9hMMdMFk_mzGWc1J9ip1_aZ64Nm_Vlz2gjxVqJVC0jP9-BJ_eMOwqrIn0rrbO4G7OwnVUFwM6tyO7DWHBt35GAnskOCJgcUliESch6zkDI2eGOquNbPiD6NtGrupo2cGDgJ67fkENrU07IfMnmbTVjzy5m75f7fUh-HpESr0adpd3lU-qH0ELrGGCqr9-TnorJv_T8eE5EKahmqvkzDbPPMYT8jy__o42yyUZjgKURr3Z6P3FCHTjODQ-r1qS5LnEFGLgwpPWbt_I1a0N_1LhqOXqOVM7ykKp_HVzkdkCmuGqPZkNv5IVntrtiTGUMrLkWOmGaivOZ7AlsNguKbEBpKKum3gvCmdBIl0O0l-OQAufpDDMG5S2HFKFT0MUH_gLgPblpxTctCTmXk_upG1NgsLiUpJ9RPFYGr_xjt-2kfiwa-cH1s90WKVsu7zLZrGskmYzpt21jlY7xSiepT8z-cOmDOw5MEuHESSNmPMeRgNfsdKQHSxvZ_WVFk6Lq4G4g",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Name\" : \"Уран\",\r\n    \"Description\" : \"Уран обогощенный по U-235, ГОСТ 420\",\r\n    \"MeasurementUnit\" : \"кг\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{products_base_url}}/products",
+					"host": [
+						"{{products_base_url}}"
+					],
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add product inventory",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ProductId\" : \"8df262f3-92d2-4409-fbe7-08de29b33262\",\r\n    \"Price\" : 14200.15,\r\n    \"Quantity\" : 5000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{products_base_url}}/inventory",
+					"host": [
+						"{{products_base_url}}"
+					],
+					"path": [
+						"inventory"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update product",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjAxOWE5NjRmLWUwYzctN2ViMS1hNjhmLTI1MTdiNmM1NGNhYiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJDdXN0b21lciIsInN1YiI6IjgzNjE5Yzc0LTg4MzEtNGJmOS1lNjEyLTA4ZGUyNmNiNjE3OSIsImVtYWlsIjoiYW5uYS5hbm5vdmE0MkBnbWFpbC5jb20iLCJqdGkiOiIwMTlhZDVhYi1mYjZkLTdjOWMtYmQ4My01YmU4YzUwZDAzM2EiLCJleHAiOjE3NjQ1MjIzMDksImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAzMiIsImF1ZCI6Imh0dHBzOi8vaW5ub3Nob3AuYnkifQ.EU_hQWLeSTQQCNhun78Ln6SULenS2L168Ms2lONmjXcxcRIV82MTIME1rF1VjUiV8EjkhPVF3-fXAjyCcoGGVPFRqPimWKdF5PJS8AKBTqvZcTnmf2CA1SwZaxVCYYxaeGSsr1hwOMOkkiB5s0ouLlYGMHRonz5Kxub9eoiulguaKHygeeG_D02KRMpHzxugEeAXI7BFU9n8GaX5Osq9XVAvlD5G8I4z2eDMPr6Q8-qbbx15vJQygwQlXKwzDDawi75r5_jpx-5tIw16Jg-y2eSkhre8wps5ClTWy2q7lQyluyxxo9rJj8dTqzj6OWg0c_FBNKaWbNFxmgP9gs9SA1LbYptCOirdJ2YxxzYL-45XwkMMtOjQOQ_uTE5920AUfCVdWM8DvVzOJnEfi2lAwA9RLA2Gc1kufAqzxJ9_iBaYRhEL99x8F4lXETA5qAErTUNz24U3SBih5sL1smqbpeblwRRFFI8kD0D0A_yAH3o3Oocc0bW-GivOP7xu64GD-MH47tEZVfebtvRRRg5Cn2Wg9XgejNIk08ZXmDMB1OciRPR60mbEi6KhnguPMnk8jH8osZpmXMTs0Dlo3li5OYydMHiSZ8ZfZNYIEcOFfG_mhHXDU_ZvlHCelXfbbMApNf8LpumZG0rfP66zDwl-aN-qxf78dPEElVhdwQZ0NiQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Name\" : \"УранУран\",\r\n    \"Description\" : \"Уран обогощенный по U-235, ГОСТ 420\",\r\n    \"MeasurementUnit\" : \"кг\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{products_base_url}}/products/8df262f3-92d2-4409-fbe7-08de29b33262",
+					"host": [
+						"{{products_base_url}}"
+					],
+					"path": [
+						"products",
+						"8df262f3-92d2-4409-fbe7-08de29b33262"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete product",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjAxOWE5NjRmLWUwYzctN2ViMS1hNjhmLTI1MTdiNmM1NGNhYiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJDdXN0b21lciIsInN1YiI6IjgzNjE5Yzc0LTg4MzEtNGJmOS1lNjEyLTA4ZGUyNmNiNjE3OSIsImVtYWlsIjoiYW5uYS5hbm5vdmE0MkBnbWFpbC5jb20iLCJqdGkiOiIwMTlhZDU5NC0yYTU3LTc5M2UtYmY2MC00ZTBlNjE3OWMxNGEiLCJleHAiOjE3NjQ1MjA3NDgsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAzMiIsImF1ZCI6Imh0dHBzOi8vaW5ub3Nob3AuYnkifQ.nG_fs3MqLkwIlfSS4UfgBHFjmRmb6o4o_uG3nU0P6Jiw-34jIRrPZDS4TlmYMWthR8mwlHCu9wP3T0_XjRWLW7nTLJ7QyM0Mqws3AGyOZumum4Ig8dLRvJhE2SLi5jo6r94dnFOkCvw3NziJChut_-JANhWoF0vYS4S-P-JnsTRF-6YN1aY5MYP0Gcs0t8nMm6lJ8xX-o3J94XJ__VlU2b_soCmnaAQSwWfStSd333sBqO12LNVM79t9H5h_Ib5MSb0u54iNk9grJiNQCwk1gCqHAC2YBmIIMFsATBIPnNRBlQTAFGks606NYg3EWt1C19_7_GIIdKW0pcUajbRNp3LDb3zngzb4QKMevXlr9wX4H9H6WdQu1MWGndQCr_syMoQWTvatqTKVMSP5c-TSmNas5IkXYCsrS9kj2RjLAbDv1ZoRu9UtTsQPO5WOv3AxDcK47sz0poQP9DakpXTDXxrtQSYfwIN66KNZc5SZigVhR2g_K2o-1TQsD5FHIVsxLQD3FaDBnu3r3CBYkJkmezYjmTuhvHRQXtn_cd2VA6VHsgqfa7S3zzTIve-RJixWs34py8qfWDWf198wStFTUsSmShukbg9jMpxN2VHaAeP8oOQVE2b-zfjVw8wGxyNfavP6AHx51kzrptQJK_KTDDXEedHVL0czaNiU3QCsdGI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{products_base_url}}/products/87d56f87-bb56-4667-c818-08de2e83df0b",
+					"host": [
+						"{{products_base_url}}"
+					],
+					"path": [
+						"products",
+						"87d56f87-bb56-4667-c818-08de2e83df0b"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "products_base_url",
+			"value": "",
+			"type": "default"
+		}
+	]
+}

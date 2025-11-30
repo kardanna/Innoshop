@@ -1,0 +1,779 @@
+{
+	"info": {
+		"_postman_id": "8fc4e131-f0b8-454d-b53f-93cd36cdb88a",
+		"name": "UserManagement (port 5032 / 8080)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "49909855",
+		"_collection_link": "https://mefeyo9956-6467883.postman.co/workspace/E-Rhiannon's-Workspace~c818fa3d-425d-4af1-8ac2-dc9190337a4e/collection/49909855-8fc4e131-f0b8-454d-b53f-93cd36cdb88a?action=share&source=collection_link&creator=49909855"
+	},
+	"item": [
+		{
+			"name": "Register user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"FirstName\" : \"Anna\",\r\n    \"LastName\" : \"Annova\",\r\n    \"DateOfBirth\" : \"2000-01-01\",\r\n    \"Email\" : \"anna.annova52@gmail.com\",\r\n    \"Password\" : \"AnnaAnnova123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/users/register",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"users",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register admin",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbmlzdHJhdG9yIiwic3ViIjoiMzBmYzJkOWUtM2JiMC00YmRjLWQxNWItMDhkZTIzODNkNDU0IiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvc3VybmFtZSI6IkFkbWluIiwiZW1haWwiOiJhZG1pbkBpbm5vc2hvcC5ieSIsImp0aSI6IjAxOWE5ODBhLTc1ODMtN2EyNy04NzMwLTk2MjcyOTI3MTc0OCIsImV4cCI6MTc2MzQ4ODMxMywiaXNzIjoiaHR0cHM6Ly9pbm5vc2hvcC5ieSIsImF1ZCI6Imh0dHBzOi8vaW5ub3Nob3AuYnkifQ.Ex1lztYXE24CYQMpRiREhR1n4p3toZ42KGgrpW4CGdJ89XN4_vKEukgJ7c2qsmo_khl0cdKJ1papVNwOIEpefGDAp-ifqxUFOaDavjA4Dqs1ab7K0dbPFNnpO01ojAJBMP311z4KQHjtZ3j-L8HK0dXLRnqIFbthPvmdBvwghUVvcTVbyzhJt_fQAq5chuCvE72cn4Ny-anyUjpah2X95W5pqlpX-ZphSc_V19RWJLt7rdYBYFI9vgrLmcDRyLaajCzIG8p_HBkMOocwyQREFaBSoymnKmfb-bogMM8OsNkNnBy4dquF5UrYupV5jKg4_knmuE1uuLb4OrT3bLAD6h7B2aBE7HKA6Myu9Q5JhMhKST7W8Ig9DF_XAdWGvI0pq89-xWDFHm-JbSu8KF3KFyDTr3i-ZEV1PwhLt8tJuJG-Hu68yIM079ZLIjE41SOj9hhWEBzqImWRKOt6UGtVOXZuydA_hdEL0IEc8H6p07huWwEOOdcPjVsGSrbxW8Nye0UG6NMR07RT9ezfjPij-1OFwHGHpSN2vbMsjaoNleM-ueQ75auwTz0qZSS6rlWmhpwsPbAO3pxRsqhPNRCD-BbS0QqMGMGzgZR-Si74Q1aVvtUrlwVmiILXQT0heU92wW0Qf-sf4PnhvuA0HmC450Lps-gJCix_Gu94_5DyAuw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"FirstName\" : \"Another\",\r\n    \"LastName\" : \"Admin\",\r\n    \"DateOfBirth\" : \"2010-10-10\",\r\n    \"Email\" : \"another.admin@gmail.com\",\r\n    \"Password\" : \"AnotherAdmin123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/users/admin/register",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"users",
+						"admin",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Email\": \"another.admin@gmail.com\",\r\n    \"Password\": \"AnotherAdmin123\",\r\n    \"DeviceFingerprint\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/auth/login",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login admin user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Email\" : \"another.admin@gmail.com\",\r\n    \"Password\" : \"AnotherAdmin123\",\r\n    \"DeviceFingerprint\" : \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/auth/login",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "Email",
+							"disabled": true
+						},
+						{
+							"key": "passwordHash",
+							"value": "123456",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Refresh token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"RefreshToken\": \"oVlORVGqqvD5KT71SEDpG4JkBlu0N0Yz5hpv+oRmz2PeIMh+ii2TEROJ4tMg54b9BzOuclBd82zNe6eeloa2pw7zt2PyG0WwOQrusdW8qb+rLMagC6HUvC8ugHM9H2znjYp7M4zVCAKSrvs5ST222WL/hA6Bsg0ty7/vkhPIrBTY8bmqX0g5tqVeky5Aeu67Elr/28tk5rLB+OF8U9xClo+9PvqopkmEcVtOwptz1TrfvvyPD3nYuZvVfH2uqTI348i/Z+OQ21exINGIePtRGSQWpQkSKdu7HzmYCHua8Eo5lOPqomau0oSB6oyh5l12DNe5A85/i+WByCieiZ/tkg==\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/auth/refresh",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"auth",
+						"refresh"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "openid-configuration",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/.well-known/openid-configuration",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						".well-known",
+						"openid-configuration"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "jwks.json",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/.well-known/jwks.json",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						".well-known",
+						"jwks.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verify email",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/users/email/verify/20yvYnEeeCPQCFReCvkqLu81dU9Y4BUJcbd3qpP5YSI",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"users",
+						"email",
+						"verify",
+						"20yvYnEeeCPQCFReCvkqLu81dU9Y4BUJcbd3qpP5YSI"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Change email",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjAxOWE5NjRmLWUwYzctN2ViMS1hNjhmLTI1MTdiNmM1NGNhYiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJDdXN0b21lciIsInN1YiI6Ijg4YjhlYWE2LTM4YTktNGQ0Zi02MDk1LTA4ZGUyYzRhMDUyZiIsImVtYWlsIjoiYW5uYS5hbm5vdmE1MkBnbWFpbC5jb20iLCJqdGkiOiIwMTlhYmMzMC03ZmNiLTdiZDQtYWYyNi1hOTJiOWUwMzU2MzYiLCJleHAiOjE3NjQwOTQ3ODYsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAzMiIsImF1ZCI6Imh0dHBzOi8vaW5ub3Nob3AuYnkifQ.mdmcLF4lKW7jrFyu5m7Jfsk-3Hf7PpOFasq8wY-W8zwM0nw4ouINvaUcL4ibPdVlVSH-2d-y40OPUO9-cQ5uhiIjqg_xyHEqoIrSRoqfKeoXb4LGw66dBSl3_cGe-1hmVxHCd1ojvSiq25M6lGy2DOQ-zVvJFBRImin1I3xTZ6jghOMqhErHky-B-2_HzyyXqy-_zE1M2oVmOV2T_0HLytFwTG4L-H7C060-bC45K93S-p01_T5RmBTDobwjczbtRysHn2PTL3K48R-Gbcilep7FPvOeGMt39bQw7FvDVPMncQd7Vbzz-X669UsMi4pP7FL3BJTQwjKjltpHcY1SjvXWskJmpshALlBi1AXHlOzlHl4S93SE-48jDvt3zk9y53-sc4fzHw3GTPdKTWK-3Plo8gQOGVSPukXq0i2OAQuci9GFrjmcQsxvb4hqInTcQw_btjJPE26sbds7HqIizSWKeaXG2eJy4d753dl0VWApIaZn6J7u6UH9gA2w25MP_WNEU6PQ-eXJBUJbwr4eahmbGRImL_R7x97z3LO_Q9ef3QI_wDt1iUY9fX7uT6vITsOY0tNhkOk45rsLaBekWyz_u4CVsnkNHeTuy7w4qg2HEdxJ3JMoRBqXfJtsAJHg9HaLVRB6yW-7FBcYM_tIL1y9aMgz13-F5fOY-yxIvzI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"NewEmail\" : \"anna.annova53@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/users/email/change",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"users",
+						"email",
+						"change"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJDdXN0b21lciIsInN1YiI6ImE1YjBmYTExLWZiZmYtNDM5ZC1hOGFkLTA4ZGUyNmNiZDU1NCIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiJBbm5hIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvc3VybmFtZSI6IkFubm92YSIsImVtYWlsIjoiYW5uYS5hbm5vdmE0M0BnbWFpbC5jb20iLCJqdGkiOiIwMTlhOWNkOC0zYWI5LTdmZTAtYTExMi01MjJhODU5ZDA5MjciLCJleHAiOjE3NjM1Njg5MDcsImlzcyI6Imh0dHBzOi8vaW5ub3Nob3AuYnkiLCJhdWQiOiJodHRwczovL2lubm9zaG9wLmJ5In0.SVCpoJAJWIJfrvywpBErVG9gzV5MR54zEOJ80n5ISh3z0IFMudtCdL5p1iMuQl2VMUtc_VjZVZIvNloMmGVDS9HhjluQbNFd8WBckkLZDFy7hx7Xq9g8Rht2C6o2v1pIpfxMK-b4bRHLFmgLYXuXuMlRvkgMN76LZODG4xz2Mhz3S0Y5htmx2-wdlV0UHjCuX03FR9AUDaxyb3JJFKgwirrP8szxtUYTPBQSN_7zUrzUlPiogH3ut8TUm6_3bMKpasdqy1EASqu28Vf0MZqK3H0XPoMWo1Jr4Wme7QWXeLImnEYKR43xPnkQ7UAJyclqjyRtWqZnq28FoLYQW5QDLGpiMumAPz8gC2xbnv-Fx9CBQ6GEbhODBH42pEiC3QtsSv30_IvvZM4UcBSwbo_qSgZb6t8z1fZjwc8lZ0lnbIhCyDNey8cNGluUCb_KytCDjVKVB8j20wDwpzNKNl4gBCDt0IYy2heOTF0fTLX7iIHVuAzLmew9rkWjygch9HM_yM0Les6XT-bKmANyVanvxzybrlMvWzilSkk1I8zcRFtGK_Z69Lw6hiAie57wpjL3-clKQ3NO-67wuFahe8g_rOYvS4gVG6dssRlI9nvR_QtSINJUIV_qzSkiVJNTYp7wvHTtPwzkeHkoagtiq2nq7nE-WQ_HO0hIbectiFWMDjk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/users/me",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"users",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get user by ID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbmlzdHJhdG9yIiwic3ViIjoiMzBmYzJkOWUtM2JiMC00YmRjLWQxNWItMDhkZTIzODNkNDU0IiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvc3VybmFtZSI6IkFkbWluIiwiZW1haWwiOiJhZG1pbkBpbm5vc2hvcC5ieSIsImp0aSI6IjAxOWE5ODJhLTgzNTAtNzBmZC1hODIzLTI1OTI2NzllNGJhMyIsImV4cCI6MTc2MzQ5MDQxNCwiaXNzIjoiaHR0cHM6Ly9pbm5vc2hvcC5ieSIsImF1ZCI6Imh0dHBzOi8vaW5ub3Nob3AuYnkifQ.hQ-MRilSBSoM2B5R4liZmu0IfpYg3iNodwf5KRZUdBG69XFWhBSInknOLecwKthsioGosf7PLfkkIhYnSAxr3lUGexMQfvhKrweVEHb2UUEFnY8EjohdNf8UCLypGk2s7czxt8cV_XV0eYZdink6gT9FZrqu6XltBV_aVBUV9UnWgn1ZWjMSeJksBEQPZLbPEdS7p1UwNGGEQkb8oHHNnycy6-HWQslJLXCyWKD5dd_aBR3BNRc3NW66fvp5mnBkFCAxI6m4AVka0sO6i8ZofBy6umPJ58CSxpRxVNxnDpq8thcL5HYZ5ZlfG0OZ8LW2mIFXKkRLdmKZaq4rDh6zWA5wABMox6cSy_vKpLZUVYcpcbp0m9T9ZmY3RYpfJmiFlMsTfpmUymqPuTRQ3d-xKyFrosOyqHVID4X_KvSURhzMc9GEACaq5nDmoLWBSBke_bu8dDlOUYDTENpZoRKwMfOhFSGWegNjppHraXNlgcVuxYz-8mgw5b7iBW2l-B15yWzWfVYYOopqplgdlwoXIdDywYKRjjIeOoUY7NCetbvDgeiTr0GF-tN62PiE9g1b29afN3HAoirfNB5pbGJTLiBh8sLwyg5N_53Yjo7inKxhJkZ6HJdJujsqrrvZkBvZm_ZZNx-RgAGgvPwfY3udVcVASX8byaHzKIzPW4cv8lM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/users/a5b0fa11-fbff-439d-a8ad-08de26cbd554",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"users",
+						"a5b0fa11-fbff-439d-a8ad-08de26cbd554"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJDdXN0b21lciIsInN1YiI6IjBlMzBmNWZjLWUxOGMtNDY0Zi1iYzhkLTA4ZGUyNzcwYTkxZSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiJBbm5hIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvc3VybmFtZSI6IkFubm92YSIsImVtYWlsIjoiYW5uYS5hbm5vdmE1MEBnbWFpbC5jb20iLCJqdGkiOiIwMTlhOWNiMi1kYzVlLTdjZGYtYTBiMS04Y2MzNjUxZDI5ZDkiLCJleHAiOjE3NjM1NjY0NTgsImlzcyI6Imh0dHBzOi8vaW5ub3Nob3AuYnkiLCJhdWQiOiJodHRwczovL2lubm9zaG9wLmJ5In0.Y-g5II9SdOs6Msa1RCLd-vpmtloQ0oFqMhPTRlr0-1M7xYf0CXSi8RFySeYSmUsV9pMluPLsf9UPzGvvGPtA_bBYhbyJsLfyjUZXGE1ptIELE4PjYw7b3fZ07KJF1f4CZLi-4pfYu8S3Gsxhll0UA_se8dPAYvmamsSPENHkl0CoajilWO08yApiYixWb9CHG-aGzD_tpKs1gigHLt9bAH5w4s_9OUSLYw85pEwX2vfIlVaXwq7N1z1be0_nl_MW97sXyeyp3aTZTQpwmHfduuQseebKeh0tuNUTpk5CIH7Ym5X5BgJUdp42-mMadFqlffA961zg5bg0Srvjg8UPe7eYXz-6VGfob39FQYusCIsArJgJTMH-BFmbTnHaet4auugKgTE3OyCCYUuk-iyBGXFPLyYcF26D_wFkDzYXu7TSTQDJ4kvRvND8ZZgUdO9K7BLXOyLKXSEtMpkIllLQbvcSpmHwIIUL-YSEo3xYp_ZP00hthHUw_PSc98X5OBGPFzb9vM1C6gXpAZokgmtZpvDn2zr-LEV4a62D7BXmN6M9BjWsPUNxiDTlsPBR-toH9kPvHyjcXOJMsktVTjFbav4pLmplI5V0S3S0SZUUGPgLBchObQ6JeK_51u3Dmv7vFmYVWj4ial_ZPYz5cWkmsK7blgurmS_erxOypEP3fX0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"FirstName\" : \"Ivan\",\r\n    \"LastName\" : \"Ivanof\",\r\n    \"DateOfBirth\" : \"2010-01-01\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/users/me",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"users",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJDdXN0b21lciIsInN1YiI6IjE2MGJlOTI0LTkwN2YtNGQ3MC1kMTVjLTA4ZGUyMzgzZDQ1NCIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiJJdmFuIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvc3VybmFtZSI6Ikl2YW5vZiIsImVtYWlsIjoiaXZhbi5pdmFub3ZAZ21haWwuY29tIiwianRpIjoiMDE5YThlMzgtNDdkNy03YjEzLThiNGItYjI0OTAwODgzNzg1IiwiZXhwIjoxNzYzMzIzNTQ0LCJpc3MiOiJodHRwczovL2lubm9zaG9wLmJ5IiwiYXVkIjoiaHR0cHM6Ly9pbm5vc2hvcC5ieSJ9.pGlks0lc4hz6tdvAE7WKLbr5NPHJvlgUi2EPfvtPIRsfyrp1IvKff44_wnOZ3q4ya9KQVb5GiPolm-cihl6HKwrT3l7N-Hl3ryyGtVjizp-TZXRBik6cZQwVPJZrqaa5fRZs3BfDEw6I5o4jaP-6uBQNEXHsbvFRxuqiOsLeutXDXpGnmvRgkaSu1Ai8B1sLxkqEClbQkc0wDly9UcMgBCjJmoIhCDsBO13N2fsCnQHVIQPRj7j-rpkL3_1TH5y2RpY2gkVr-InFrPdchYZDHxdre-VL4dvoJdlP8yWpNn61CS6zx1MSu_OoRTkmJetYlWdsv0mKLMOB_7cCCGih5W-p-COumjPO0bO1sX93RdOEeMHEsvlg2TdV3_NksgMBRKIPYiL6rrDUQUmOyrIvrYS0ImpRIE5Lo1DzSZ3W0eOnsBwQRUN6mZXUcqtYa1-yq_lWOQmndvn1J1DMYZiIIUM1u6zYaoYDZ30jlkc1riUnUXreGaRko7Y5lHQcXgNxCMkZCCobl0-QjsBSUYjOPaRH40yNsGUxjD8-ppTEnIdjYco_YUJ-PY4uWHnRZS2vv9Dy67uSm0uf4i6Cg9FPbHjrXcslTBbwd4uDJpVp1BL7ck0IatHQEz1DJI8L5HFI8QBYgT1ByQsY18yHkvSEtQPligB_8lA1U8vvEHTcpKY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"FirstName\" : \"Ivan\",\r\n    \"LastName\" : \"Ivanov\",\r\n    \"DateOfBirth\" : \"2010-01-01\"\r\n}"
+				},
+				"url": {
+					"raw": "{{baseURL}}/users/me/logout",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"users",
+						"me",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout user everywhere",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJDdXN0b21lciIsInN1YiI6IjE2MGJlOTI0LTkwN2YtNGQ3MC1kMTVjLTA4ZGUyMzgzZDQ1NCIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiJJdmFuIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvc3VybmFtZSI6Ikl2YW5vZiIsImVtYWlsIjoiaXZhbi5pdmFub3ZAZ21haWwuY29tIiwianRpIjoiMDE5YThlMzgtNDdkNy03YjEzLThiNGItYjI0OTAwODgzNzg1IiwiZXhwIjoxNzYzMzIzNTQ0LCJpc3MiOiJodHRwczovL2lubm9zaG9wLmJ5IiwiYXVkIjoiaHR0cHM6Ly9pbm5vc2hvcC5ieSJ9.pGlks0lc4hz6tdvAE7WKLbr5NPHJvlgUi2EPfvtPIRsfyrp1IvKff44_wnOZ3q4ya9KQVb5GiPolm-cihl6HKwrT3l7N-Hl3ryyGtVjizp-TZXRBik6cZQwVPJZrqaa5fRZs3BfDEw6I5o4jaP-6uBQNEXHsbvFRxuqiOsLeutXDXpGnmvRgkaSu1Ai8B1sLxkqEClbQkc0wDly9UcMgBCjJmoIhCDsBO13N2fsCnQHVIQPRj7j-rpkL3_1TH5y2RpY2gkVr-InFrPdchYZDHxdre-VL4dvoJdlP8yWpNn61CS6zx1MSu_OoRTkmJetYlWdsv0mKLMOB_7cCCGih5W-p-COumjPO0bO1sX93RdOEeMHEsvlg2TdV3_NksgMBRKIPYiL6rrDUQUmOyrIvrYS0ImpRIE5Lo1DzSZ3W0eOnsBwQRUN6mZXUcqtYa1-yq_lWOQmndvn1J1DMYZiIIUM1u6zYaoYDZ30jlkc1riUnUXreGaRko7Y5lHQcXgNxCMkZCCobl0-QjsBSUYjOPaRH40yNsGUxjD8-ppTEnIdjYco_YUJ-PY4uWHnRZS2vv9Dy67uSm0uf4i6Cg9FPbHjrXcslTBbwd4uDJpVp1BL7ck0IatHQEz1DJI8L5HFI8QBYgT1ByQsY18yHkvSEtQPligB_8lA1U8vvEHTcpKY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"FirstName\" : \"Ivan\",\r\n    \"LastName\" : \"Ivanov\",\r\n    \"DateOfBirth\" : \"2010-01-01\"\r\n}"
+				},
+				"url": {
+					"raw": "{{baseURL}}/users/me/logouteverywhere",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"users",
+						"me",
+						"logouteverywhere"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout user everywhere by ID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjAxOWE5NjRmLWUwYzctN2ViMS1hNjhmLTI1MTdiNmM1NGNhYiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbmlzdHJhdG9yIiwic3ViIjoiMzBmYzJkOWUtM2JiMC00YmRjLWQxNWItMDhkZTIzODNkNDU0IiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvc3VybmFtZSI6IkFkbWluIiwiZW1haWwiOiJhZG1pbkBpbm5vc2hvcC5ieSIsImp0aSI6IjAxOWE5NjU1LTUwMjItNzNmYy1hNTdlLTdhODk1MjY1ZTdiMiIsImV4cCI6MTc2MzQ1OTY2NCwiaXNzIjoiaHR0cHM6Ly9pbm5vc2hvcC5ieSIsImF1ZCI6Imh0dHBzOi8vaW5ub3Nob3AuYnkifQ.OvdWGej_YyvDhwJQ1-BCw0wieA8AuHUUAfQ25upYzmxv6uJDEIc8lSIwr-CYOcbUDDgysLuAw6-oSll1J-2mnUe_v2LaSWJh-4n2P7szUcAQ8u0RuMwO-B5DddYcJEKl0q2lnrU6Mg6FTiI7pJvrC4TqMxtS7s7lQlMtaRggXUu-uaUe7hEbsf-X1CUEvjKOXold3y0q_qFBD4DIeqtbu4pfpJ8KkNJL1J_YVm8Mrl3WMUKzwOHBrHOrB6WMUTBcYwK_3kLfkK8XjMjetjjilnCY3wGLceuW_AObA3rSew1VwQZG-qTIec7kYo8zImZJB-UzQlH02RlfucPmNCAlV_MK0ekkqbncg2mPH83e5SIrNfOMgxPVRUgHuqlBalDeg72w1qBbBwAci1Bf3wSomJyT384xGolC4Q-WJcCAXDPsQ_H-G_hM2RRqfazmnG1AHhWa24mNd3a6FnVWnpDP8_A2jc_IUpzVhO3rzIO5dsrIJu1kbBrvkWVgKDZh4gtC59AAOj6xP0DRxGY1_YcpMQUJmbXq_Jpr1ILNRT08WiDnO4nI1js7yJB-zxLjQvolaEwUIRFCir5FtM3n6lfr1Zzd8p-u72BDSKtmcgFm85hJl0E4LazaIKb-XOSqDy3gGLUH1MHyjjlBBUhBCutpfKpWuJUv-8LV4e6bdZ7-X2k",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"FirstName\" : \"Ivan\",\r\n    \"LastName\" : \"Ivanov\",\r\n    \"DateOfBirth\" : \"2010-01-01\"\r\n}"
+				},
+				"url": {
+					"raw": "{{baseURL}}/users/160be924-907f-4d70-d15c-08de2383d454/logouteverywhere",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"users",
+						"160be924-907f-4d70-d15c-08de2383d454",
+						"logouteverywhere"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJDdXN0b21lciIsInN1YiI6IjBlMzBmNWZjLWUxOGMtNDY0Zi1iYzhkLTA4ZGUyNzcwYTkxZSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiJJdmFuIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvc3VybmFtZSI6Ikl2YW5vZiIsImVtYWlsIjoiYW5uYS5hbm5vdmE1MEBnbWFpbC5jb20iLCJqdGkiOiIwMTlhOWNkNi0xZjBjLTdjZTEtOGRmZS03MTY4NTUxZmYwMmMiLCJleHAiOjE3NjM1Njg3NjksImlzcyI6Imh0dHBzOi8vaW5ub3Nob3AuYnkiLCJhdWQiOiJodHRwczovL2lubm9zaG9wLmJ5In0.gwbIqLFsPdRApR9zwEUFYyN2C4s1PJFSyrBH8iTNCKUSvJTk55zTtmwoyQTi3CCm-SSKnIwdUdnuPTP8aeiPwhfzXrNAARzuF8uiKLpus6oFdCB0_9lfrt0Bo0GAtijCA18eUEJWmeqLtFjdOgx96DId2nUbc3T9pWqAAjJ9VB1N6fdtTylU2z0QNca5nY1-k6S07JiC4dLF-47UMzB2MfscFixm_9cloISGrH06B2MHrzPrbbcfk7krBsM3Nq4-t5J45C5J5_yDFNZ1HPRmvs91ySwAxOvqpWOCNxnh3qoq5p77fgDIGCdZylL_bAQ-Rn5qgXrjXPEF-ISAThYN-D1Kq1ubkIElhEYIKqd0rIE8CvKljhdR9Nan70G3el1cpSRCGV4OTLWq9BtpIFRNY0aBo0-I2xSD-IXpD0fP_ks2ZVtncEKZVfh4g_fkd6qkx_76YeEUfjBMfTTwt-8LxwMb9L0prVwF0SFy1Usc98GioWTIxek2Pj14XBCVxnL7nWlkh678xB3AcXib6kOuaPVfUvnxLsprfAPHPWJMC5dVhE367br4B2Z4AwbS-QACATfllJX2NzCDhVm5a_GrGYydeGxEiEZslg4WY4qEEtkecIbQDg1JqI05MHuQCdLSpBfjKDcg9aGZDz2ZtHSo-RN1Bz5qj3oFW7pcNlSQ16A",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Password\" : \"AnnaAnnova123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/users/me",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"users",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete user by ID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbmlzdHJhdG9yIiwic3ViIjoiNmI4NTEzNTUtMTk2ZS00NzgzLTZkMzYtMDhkZTI2YzkzOTEzIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IkFub3RoZXIiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9zdXJuYW1lIjoiQWRtaW4iLCJlbWFpbCI6ImFub3RoZXIuYWRtaW5AZ21haWwuY29tIiwianRpIjoiMDE5YTljZDktNjMyNy03YmVhLTkwZTYtNjJiMzNlZWM1ZWU3IiwiZXhwIjoxNzYzNTY4OTgzLCJpc3MiOiJodHRwczovL2lubm9zaG9wLmJ5IiwiYXVkIjoiaHR0cHM6Ly9pbm5vc2hvcC5ieSJ9.SpoVa8Dlr_MVxxAFwuOSndmVRozgNy9tyebB_tI-2Rqhc_gVOKexoDtmKeQcXz45bBr8yJC45xCtTmDk3cOelTSuutay_Y7FweIckQ4Cof0qhPsgtanwfOFE5fieYCI9m3NYyNW4XXKS9mo6nrkyfvCeocdTItcgogPhAuxujassxnLhnGlnz8KsR4YaNgewAIS3zodAVk_cAf1tnJ8ZhcNizbLRHPXszC5ANRJpk2R-6qMa6A8lrzlo8TG5JedUzepIZn-xBGn9cle4R-H682cbY2LJ4KgI4m8jERlW8fEHjYof1F9Wkr-8Yytx4iHa0buwbGsabWeBEif9ykh_m8wVoV7_AHMACzMxVA4bTH9_Wylut_idJCalcKheU8JP6A-Hb8r538FVPs15-bE-CkR1XyNpi8hwOuCz-iEeFUgS0EwxsXyLbQ7aUiEGSdEinRpUBk-OPiYRKgoyKnXBxR0I7A1VIxx1O62C6iWp4pkpQwURFBajZT-1PmSYEEqG2bHtQixJJvhpXSByQcHKsPaJ8NH7qrGfywO8LYt5xDwLGL_9eCnuXyDnRRf4uWcRB7cPV2jFZTA4DfjVtZ4exV_A2t63PDqtXHXX74OfrCOsnn85FlH6O7iUZtrGYk5-T1cV19hWCEhw3Pjbgtw0CdWtIZ-NFLW-7Fhh2ElLc1k",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/users/a5b0fa11-fbff-439d-a8ad-08de26cbd554",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"users",
+						"a5b0fa11-fbff-439d-a8ad-08de26cbd554"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deactivate user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjAxOWE5NjRmLWUwYzctN2ViMS1hNjhmLTI1MTdiNmM1NGNhYiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJDdXN0b21lciIsInN1YiI6IjgzNjE5Yzc0LTg4MzEtNGJmOS1lNjEyLTA4ZGUyNmNiNjE3OSIsImVtYWlsIjoiYW5uYS5hbm5vdmE0MkBnbWFpbC5jb20iLCJqdGkiOiIwMTlhYmFlMy1iZDdiLTcyOGItYjJiZi03YmJhZDVkNDYxMzUiLCJleHAiOjE3NjQwNzI5NzgsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAzMiIsImF1ZCI6Imh0dHBzOi8vaW5ub3Nob3AuYnkifQ.tR_N7saW7Y7RG6s4RJgdtXzo8q1U0QAqWzLCYPgp4AC2u1kw51b92p22AZhKMYlgr0q6h717O9RVOtfJfc87Zh6WO128BcJDW91DowImqcDxNdo2cl1mRza_Aw6CV8dmltGfckOAdFWfrS0rlM1MJYcX1tXLe8vAYCNicAxkPRe5HVD04qllWeGpxgVegoJAZQMeQPoAgMVVi0pNuAh-rg2jJ6F3vkGflNFCJqG-tP2P385YynMuvtlVKmUFFYNQ9tDY48uMH4Ku0-Q3mvXrqVpVfWDssIuMJJLWYuLK9lpgV2iROhXoeWtscHzzbinV8IIHj4oxy_3O8ib62JiY6z_Ch7k2pl9t6_GFxCvflxKdH-pXOK2NlmUdXTpvvRJtKDLQ9Kq-YpuSyv3z-3XRkUnxsVW7iTm_v78-mVkiA2inqPq_YA0DT1fevpaB8lPUo1Y9RCf3AobpN_iJMuhTQAoePgp7BNtq3et4EembNO3LZT8CHKKprrwxE3vgHr5H_SpMUR-3zgePjf5REzXVmhaKQqrxre1l4rUE6KIWNGbRZtG_HRYwo9zrtbsj5C3vgU-1VtFAcTF9aYXfvfW6GbGwZwivJJhdGx_IjC7iGFcqvrpYHVyOPA_tZpELIdp_U8kJDom1b45yBzkWbNVLjMUmnRIZusk2EuaX7Pm3GT8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"FirstName\" : \"Jane\",\r\n    \"LastName\" : \"Doe\",\r\n    \"DateOfBirth\" : \"2010-10-10\",\r\n    \"Email\" : \"jane.doe@gmail.com\",\r\n    \"Password\" : \"QWERTY!!11qwerty\"\r\n}"
+				},
+				"url": {
+					"raw": "{{baseURL}}/users/me/deactivate",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"users",
+						"me",
+						"deactivate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deactivate user by ID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbmlzdHJhdG9yIiwic3ViIjoiNmI4NTEzNTUtMTk2ZS00NzgzLTZkMzYtMDhkZTI2YzkzOTEzIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IkFub3RoZXIiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9zdXJuYW1lIjoiQWRtaW4iLCJlbWFpbCI6ImFub3RoZXIuYWRtaW5AZ21haWwuY29tIiwianRpIjoiMDE5YTljYjItOGEzYS03ZTE2LWIxMzktYzQ5OWE4NTIyOTQ4IiwiZXhwIjoxNzYzNTY2NDM3LCJpc3MiOiJodHRwczovL2lubm9zaG9wLmJ5IiwiYXVkIjoiaHR0cHM6Ly9pbm5vc2hvcC5ieSJ9.iT69YCOc5vsW0__uloY9xj0-VnWQMvACS6KvzpPxamrDAu0Ss0nzke9jQrPaTBOPhN55Z1zajEBRu06THdG3CGvUIp4Y3IMYzo7q6uHePUELUd1i2GFQ7yTBhz6G9zbw6iBSvDyvCh3yrb0I5eXdQ-7OJC3l5zbecWdxbA8PezSrqIKZHu5UTLdEI9jq7cyIr4hB5CASM19Cm2uKG-zoipf5ynlww6A3OJoc1zO0keo5jPWcqZoNT7YkY9ArJkT2TBM2TmAbStMJyIsz7Zc6JTaKVzF-VncKlh8oM6TEJIJlDwXjdIrJlqPBcaBD4klzYzM03IkLMZxsOjI_4Vf9bfTjZLZKQyUoCQqXZpP3UngZR_Zukg_A1qW7PK-cBs_BvI767Q6nitEBvyqNEtc7eVjYWnRSyk8PAouJ46JfMiz6mSrSwp7KSaf7CDJqcPLBwsXfkHLvb2d37b4YYGd7mFRQvkjCFRebCJRGgIX819c2e1N68uBI0jIlfba3gPBi-cT4e2PabpgeStqsqeQDLeK7mIftmb95otZB9dR_btNsf7BHBbSRr3y64Z-X5Kxhx5T5XMkdFTw5WUf7xr2thmCTTQUrezVxRk2VYqa3v9F7gt11BskjvB_2ZA0JhKjyWN7WbLW8w3MIN5UC1fvUWVOLJS0MiSuQOj-mu-mF0Bk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"FirstName\" : \"Jane\",\r\n    \"LastName\" : \"Doe\",\r\n    \"DateOfBirth\" : \"2010-10-10\",\r\n    \"Email\" : \"jane.doe@gmail.com\",\r\n    \"Password\" : \"QWERTY!!11qwerty\"\r\n}"
+				},
+				"url": {
+					"raw": "{{baseURL}}/users/0e30f5fc-e18c-464f-bc8d-08de2770a91e/deactivate",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"users",
+						"0e30f5fc-e18c-464f-bc8d-08de2770a91e",
+						"deactivate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reactivate user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjAxOWE5NjRmLWUwYzctN2ViMS1hNjhmLTI1MTdiNmM1NGNhYiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJDdXN0b21lciIsInN1YiI6IjgzNjE5Yzc0LTg4MzEtNGJmOS1lNjEyLTA4ZGUyNmNiNjE3OSIsImVtYWlsIjoiYW5uYS5hbm5vdmE0MkBnbWFpbC5jb20iLCJqdGkiOiIwMTlhYmFlMy1iZDdiLTcyOGItYjJiZi03YmJhZDVkNDYxMzUiLCJleHAiOjE3NjQwNzI5NzgsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAzMiIsImF1ZCI6Imh0dHBzOi8vaW5ub3Nob3AuYnkifQ.tR_N7saW7Y7RG6s4RJgdtXzo8q1U0QAqWzLCYPgp4AC2u1kw51b92p22AZhKMYlgr0q6h717O9RVOtfJfc87Zh6WO128BcJDW91DowImqcDxNdo2cl1mRza_Aw6CV8dmltGfckOAdFWfrS0rlM1MJYcX1tXLe8vAYCNicAxkPRe5HVD04qllWeGpxgVegoJAZQMeQPoAgMVVi0pNuAh-rg2jJ6F3vkGflNFCJqG-tP2P385YynMuvtlVKmUFFYNQ9tDY48uMH4Ku0-Q3mvXrqVpVfWDssIuMJJLWYuLK9lpgV2iROhXoeWtscHzzbinV8IIHj4oxy_3O8ib62JiY6z_Ch7k2pl9t6_GFxCvflxKdH-pXOK2NlmUdXTpvvRJtKDLQ9Kq-YpuSyv3z-3XRkUnxsVW7iTm_v78-mVkiA2inqPq_YA0DT1fevpaB8lPUo1Y9RCf3AobpN_iJMuhTQAoePgp7BNtq3et4EembNO3LZT8CHKKprrwxE3vgHr5H_SpMUR-3zgePjf5REzXVmhaKQqrxre1l4rUE6KIWNGbRZtG_HRYwo9zrtbsj5C3vgU-1VtFAcTF9aYXfvfW6GbGwZwivJJhdGx_IjC7iGFcqvrpYHVyOPA_tZpELIdp_U8kJDom1b45yBzkWbNVLjMUmnRIZusk2EuaX7Pm3GT8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"FirstName\" : \"Jane\",\r\n    \"LastName\" : \"Doe\",\r\n    \"DateOfBirth\" : \"2010-10-10\",\r\n    \"Email\" : \"jane.doe@gmail.com\",\r\n    \"Password\" : \"QWERTY!!11qwerty\"\r\n}"
+				},
+				"url": {
+					"raw": "{{baseURL}}/users/me/reactivate",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"users",
+						"me",
+						"reactivate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reactivate user by ID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbmlzdHJhdG9yIiwic3ViIjoiNmI4NTEzNTUtMTk2ZS00NzgzLTZkMzYtMDhkZTI2YzkzOTEzIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IkFub3RoZXIiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9zdXJuYW1lIjoiQWRtaW4iLCJlbWFpbCI6ImFub3RoZXIuYWRtaW5AZ21haWwuY29tIiwianRpIjoiMDE5YTljYjItOGEzYS03ZTE2LWIxMzktYzQ5OWE4NTIyOTQ4IiwiZXhwIjoxNzYzNTY2NDM3LCJpc3MiOiJodHRwczovL2lubm9zaG9wLmJ5IiwiYXVkIjoiaHR0cHM6Ly9pbm5vc2hvcC5ieSJ9.iT69YCOc5vsW0__uloY9xj0-VnWQMvACS6KvzpPxamrDAu0Ss0nzke9jQrPaTBOPhN55Z1zajEBRu06THdG3CGvUIp4Y3IMYzo7q6uHePUELUd1i2GFQ7yTBhz6G9zbw6iBSvDyvCh3yrb0I5eXdQ-7OJC3l5zbecWdxbA8PezSrqIKZHu5UTLdEI9jq7cyIr4hB5CASM19Cm2uKG-zoipf5ynlww6A3OJoc1zO0keo5jPWcqZoNT7YkY9ArJkT2TBM2TmAbStMJyIsz7Zc6JTaKVzF-VncKlh8oM6TEJIJlDwXjdIrJlqPBcaBD4klzYzM03IkLMZxsOjI_4Vf9bfTjZLZKQyUoCQqXZpP3UngZR_Zukg_A1qW7PK-cBs_BvI767Q6nitEBvyqNEtc7eVjYWnRSyk8PAouJ46JfMiz6mSrSwp7KSaf7CDJqcPLBwsXfkHLvb2d37b4YYGd7mFRQvkjCFRebCJRGgIX819c2e1N68uBI0jIlfba3gPBi-cT4e2PabpgeStqsqeQDLeK7mIftmb95otZB9dR_btNsf7BHBbSRr3y64Z-X5Kxhx5T5XMkdFTw5WUf7xr2thmCTTQUrezVxRk2VYqa3v9F7gt11BskjvB_2ZA0JhKjyWN7WbLW8w3MIN5UC1fvUWVOLJS0MiSuQOj-mu-mF0Bk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"FirstName\" : \"Jane\",\r\n    \"LastName\" : \"Doe\",\r\n    \"DateOfBirth\" : \"2010-10-10\",\r\n    \"Email\" : \"jane.doe@gmail.com\",\r\n    \"Password\" : \"QWERTY!!11qwerty\"\r\n}"
+				},
+				"url": {
+					"raw": "{{baseURL}}/users/0e30f5fc-e18c-464f-bc8d-08de2770a91e/reactivate",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"users",
+						"0e30f5fc-e18c-464f-bc8d-08de2770a91e",
+						"reactivate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Change password",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjAxOWE5NjRmLWUwYzctN2ViMS1hNjhmLTI1MTdiNmM1NGNhYiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJDdXN0b21lciIsInN1YiI6Ijg4YjhlYWE2LTM4YTktNGQ0Zi02MDk1LTA4ZGUyYzRhMDUyZiIsImVtYWlsIjoiYW5uYS5hbm5vdmE1M0BnbWFpbC5jb20iLCJqdGkiOiIwMTlhYmMzYy1lNzU0LTc0YWYtYTVlYS00MDEwYmI2MDFkNmIiLCJleHAiOjE3NjQwOTU1OTksImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAzMiIsImF1ZCI6Imh0dHBzOi8vaW5ub3Nob3AuYnkifQ.lyOnpa2mjNy_iQkNv-CGc9U1gWrxorWA9pAajH_kfCWFO9eJBm6qFb8Sb-0dR2lqQso69x3fGIa4F6G2A13U47ZqDggNJL_aRr2FKNi4CmTW8hSbs7nXwb1hfzwHhTh6zMDJep7QSEI5gEvVd6uhGxyNHLZw4MWZzYNJQxBeygf4OHOryV7xcSOzghyW6SkTgZOnjai1iRjeFBOOxhNXUpl3mxbLWa7vLW8EKDuHMBkN1g_opOzF6PkOiiS2Nuka_HlyN8DyTSBPv7Bm5XtK0L9lHGJPyJWiFv8RYaoQj9TwveDj4bOAI9mei8vuGxfzOd92Q3BqRUuz1W2Wp8gpUAEG3UZrCdNDDwl6HH8pwXv1lSq_kgHE6acXRy-7bOeqeJ5InMCUQhxUFC2XG9ddQD4BQesLzWsxJfBMJuNMOOmFv2-g4lTBCCleqI0SUux4cqNhZzLjJQkLYQiy8GBlRVFnjx4f3HwJQCY44lvG4s22iUMnZn47TiLsJqnudJ5fVe01IOeDZdGYvIQzJl_Fi8hAlH6J4f1gbhDY__oB2ugtjEk8E2c9QzKF7XiMV2h8MSwvX1fI4d546_E9gx5OBOMCOUWdwGJuqq2XZYsD-9jRAIFItKxIuvTr0ws60o8L6DfPV2AT0EEbkbza0HKltfm7HlSsOyp1Mmr_fzVcLFs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"OldPassword\" : \"AnnaAnnova123\",\r\n    \"NewPassword\" : \"AnnaAnnova321\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/users/me/changepassword",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"users",
+						"me",
+						"changepassword"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Send restore password code",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Email\" : \"anna.annova53@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/users/password/sendrestorecode",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"users",
+						"password",
+						"sendrestorecode"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Restore password",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"RestoreCode\" : \"fE8_b69fHt28aUoOtFlWRLfJUEk9Tx7XyyxjGLj3E9A\",\r\n    \"NewPassword\" : \"AnnaAnnova123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/users/password/restore",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"users",
+						"password",
+						"restore"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer"
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": ""
+		}
+	]
+}
